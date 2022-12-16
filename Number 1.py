@@ -341,25 +341,25 @@ Don.loc[(Don['price'] >= 45) & (Don['num_reviews'] >= 48)].shape[0]
 
 # In[48]:
 
-
+#Alternative to previous
 Don[(Don['price'] >= 45) & (Don['num_reviews'] >= 48)].shape[0]
 
 
 # In[49]:
 
-
+#Alternative to previous
 Don[(Don.price >= 45) & (Don.num_reviews >= 48)].shape[0]
 
 
 # In[50]:
 
-
+#Number of reviews >=500 and number of subscribers >= 1000
 Don[(Don['num_reviews'] >= 500) & (Don['num_subscribers'] >= 1000)].shape[0]
 
 
 # In[51]:
 
-
+#Alternative to previous
 Don[(Don.num_reviews >= 500) & (Don.num_subscribers >= 1000)].shape[0]
 
 
@@ -386,7 +386,7 @@ Don[(Don['num_lectures'] >= 274) | (Don['subject'] == 'web development')].shape[
 
 # In[55]:
 
-
+#Alternative to previous
 Don[(Don.num_lectures >= 274) | (Don.subject == 'web development')].shape[0]
 
 
@@ -406,7 +406,7 @@ Don['subject'].nunique()
 
 # In[58]:
 
-
+#Alternative to previous
 Don.subject.nunique()
 
 
@@ -440,7 +440,7 @@ Don[Don['level'].isin(['All Levels', 'Intermediate Level'])]
 
 # In[63]:
 
-
+#Alternative to previous
 Don[Don.level.isin(['All Levels', 'Intermediate Level'])]
 
 
@@ -503,7 +503,7 @@ Don.loc[(Don['is_paid'] == True) & (Don['subject'] == 'Business Finance')]
 
 # In[72]:
 
-
+#Histogram plot of price
 ax = Don['price'].plot(kind = 'hist', figsize = (8,6))
 ax.set_ylabel ('Next')
 ax.set_xlabel ('Band')
@@ -512,14 +512,14 @@ plt.title('Don', loc = 'right')
 
 # In[73]:
 
-
+#Alternative to previous using seaborn
 plt.figure(figsize=(12,8))
 sns.histplot(Don['price'])
 
 
 # In[74]:
 
-
+#Box plot of number of lectures
 ax = Don['num_lectures'].plot(kind = 'box', figsize = (8,6))
 ax.set_ylabel ('Number of Sales')
 plt.title('Don', loc = 'right')
@@ -527,14 +527,14 @@ plt.title('Don', loc = 'right')
 
 # In[75]:
 
-
+#Alternative to previous using seaborn
 plt.figure(figsize=(12,8))
 sns.boxplot(Don.num_lectures)
 
 
 # In[76]:
 
-
+#Density plot of number of reviews
 ax = Don['num_reviews'].plot(kind = 'density', figsize = (8,6))
 ax.set_ylabel ('Number of Sales')
 ax.set_xlabel ('Dollars')
@@ -543,57 +543,57 @@ plt.title('Don', loc = 'right')
 
 # In[77]:
 
-
+#Alternative to previous using seaborn
 plt.figure(figsize=(12,8))
 sns.displot(Don.num_reviews, kind = 'kde')
 
 
 # In[78]:
 
-
+#Pie plot of level
 Don['level'].value_counts().plot(kind = 'pie', figsize = (6,6))
 
 
 # In[79]:
 
-
+#Pie plot of subject
 Don.subject.value_counts().plot(kind = 'pie', figsize = (6,6))
 
 
 # In[80]:
 
-
+#Bar chart of level
 Don['level'].value_counts().plot(kind = 'bar', figsize = (6,6))
 
 
 # In[81]:
 
-
+#Counting levels
 Don['level'].value_counts()
 
 
 # In[82]:
 
-
+#Correlation of the data
 plt.figure(figsize = (10,5))
 sns.heatmap(Don.corr(), annot = True, fmt = '0.1f')
 
 
 # In[83]:
 
-
+#Count plot of level
 sns.countplot(Don['level'])
 
 
 # In[84]:
 
-
+#Count plot of subject
 sns.countplot(Don.subject)
 
 
 # In[85]:
 
-
+#Box plot between subject against number of subscribers
 plt.figure(figsize=(12,8))
 sns.boxplot(data = Don, x = 'subject', y = 'num_subscribers')
 
